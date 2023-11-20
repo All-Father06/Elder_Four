@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<head>
+    <title>Login and Registeration form</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        font-family: 'Lucida Grande';
+    }
+    .hero{
+        height: 100%;
+        width:100%;
+        background-image:url("static/bg.jpg");
+        background-position: center;
+        background-size: cover;
+        position: absolute;
+        background-color:  #FFF5DA;
+    }
+    .form-box{
+        width: 360px;
+        height:630px;
+        position: relative;
+        margin: 6% auto;
+        border-radius: 15px;
+        padding :5px;
+        box-shadow: 0 0 5px 0 ;
+        overflow: hidden;
+        background-color: #2F4169;
+        backdrop-filter: blur(2px);
+        margin-top: 100px;
+        margin-left: 655px;
+
+    }
+    .button-box{
+        width :300px;
+        left:45px;
+        margin:35px auto;
+        position: absolute;
+        border-radius: 30px;
+    }
+    .toggle-btn{
+        padding: 10px 10px;
+        width:45%;
+        left:10px;
+        cursor: pointer;
+        border-radius:20px;
+        background: transparent;
+        border:0;
+        outline:none;
+        position:relative;
+        background-color:  #FFF5DA;
+        color:  #2F4169;
+    }
+    .input-group{
+        top:180px;
+        position: absolute;
+        width: 280px;
+        transition: .5s;
+    }
+    ::placeholder{
+        color:#FFF5DA;
+    }
+    .input-field{
+        width:100%;
+        padding : 10px 0;
+        margin:5px 0;
+        border-left: 0;
+        border-top:0;
+        border-right:0;
+        font-size: 20px;
+        border-bottom:1px solid #ffff;
+        color:#FFF5DA;
+        outline:none;
+        background: transparent;
+    }
+    .submit-btn{
+        width:85%;
+        padding :15px 30px;
+         cursor: pointer;
+         display: block;
+         margin: auto;
+         background: #FFF5DA;
+         border:0;
+         outline:none;
+         margin-top:5px;
+         color:  #2F4169;
+         border-radius: 25px;
+    }
+    #Login{
+        left:50px;
+        top:275px;
+    }
+    #Register{
+        top:245px;
+        left:450px;
+    }
+    #text_box {
+            width: 30%; /* Adjust the width as needed */
+            padding: 20px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 30vh;
+            right:25vh;
+            background-color: rgba(255, 255, 255, 0.188); /* Set your desired background color */
+            backdrop-filter: blur(25px);
+        }
+
+        h1 {
+            color: rgb(255, 119, 0);
+            text-align: center;
+            font-size: 52px;
+        }
+</style>
+<body>
+    <div class="hero">
+        <div id ="text_box" class = 'box'>
+            <h1>
+                Empowering Your Golden Years: Navigate Retirement with Confidence and Peace of Mind!
+            </h1>
+        </div>
+            <div class="form-box">
+                <img src="static/logo.png" style="height: 100px; width: 105px; margin-left: 125px; border-radius: 20px;border-color: #FFF5DA; border-style: double;">
+                <div class="button-box">
+                <div id="btn"></div>
+                <button type ="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type ="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form id="Login" class="input-group" action="/login" method="post">
+                <input type="text" class="input-field" placeholder="User Name" name ="uname" required>
+                <input type="password" class="input-field" placeholder="Password" name="pwd" equired>
+                <button type="submit" class="submit-btn">Login</button>
+            </form>
+        <form id ="Register" class="input-group" action="/sign" method="post">
+            <input type="text" class="input-field" placeholder="User Name" name="uname" required>
+            <input type="email" class="input-field" placeholder="Email id" name ="mail" required>
+            <input type="phone" class="input-field" placeholder="Phone"  name ="phone" required>
+            <input type="password" class="input-field" placeholder="Password" name ="pwd" required>
+            <button type="submit" class="submit-btn">Register</button>
+        </form>
+    </div>
+    <script>
+        var x=document.getElementById("Login");
+        var y=document.getElementById("Register");
+        var z=document.getElementById("btn");
+
+        function register(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px";
+        }
+        function login(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0";
+        }
+    </script>
+</body>

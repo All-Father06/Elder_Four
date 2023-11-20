@@ -1,0 +1,232 @@
+<!-- app/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Guidance</title>
+</head>
+<style>
+    .body{
+        height: 100%;
+        width:100%;
+        /* background-image:url("static/bg.jpg"); */
+
+        position: absolute;
+        background-color:  #000000;
+    }
+
+    .consultant-card {
+            border: 2px solid #ddd;
+            padding: 15px;
+            margin: 10px;
+            color:white;
+            background-color:#00000078 ;
+            width: 300px;
+            float: left;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .video-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .video-button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .video-button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .video-container {
+            margin-top: 5px;
+        }
+
+        #video-frame {
+            width: 1080px;
+            height: 700px;
+        }
+    .form-box{
+        width: 360px;
+        height:730px;
+        position: relative;
+        margin: 6% auto;
+        border-radius: 15px;
+        padding :5px;
+        box-shadow: 0 0 5px 0 ;
+        overflow: hidden;
+        background-color: #2F4169;
+        backdrop-filter: blur(2px);
+        margin-top: 100px;
+        margin-left: 755px;
+        display: block;
+
+    }
+    .info-box {
+            font-size: 24px;
+            color: #9dfe00;
+            padding: 15px;
+            margin-bottom: 20px;
+            margin-top: 4em;
+        }
+    label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: white;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .input-group{
+        top:80px;
+        position: absolute;
+        width: 360px;
+        transition: .5s;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<body style="background-image: url('static/mountain-8369262_1920.jpg');        background-position: center;
+background-size: cover;">
+    <div id="svg-container">
+        <a href ="/home">
+        <!-- Replace the content of the SVG with your own SVG code -->
+        <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#000000}</style><path d="M48 256a208 208 0 1 1 416 0A208 208 0 1 1 48 256zm464 0A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM217.4 376.9c4.2 4.5 10.1 7.1 16.3 7.1c12.3 0 22.3-10 22.3-22.3V304h96c17.7 0 32-14.3 32-32V240c0-17.7-14.3-32-32-32H256V150.3c0-12.3-10-22.3-22.3-22.3c-6.2 0-12.1 2.6-16.3 7.1L117.5 242.2c-3.5 3.8-5.5 8.7-5.5 13.8s2 10.1 5.5 13.8l99.9 107.1z"/></svg>
+            <!-- Add your SVG path and other elements here -->
+        </svg>
+    </a>
+    </div>
+    <div class="form-box" id ='form-box'>
+            <h1 style="color:white;">Emotion Guidance</h1>
+            <form action="/guide" class="input-group" method="post" id="emotion-form">
+                <label for="GENDERr">Gender:</label>
+                <select name="GENDER" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+
+                <label for="MARITALSTATUS">Marital Status:</label>
+                <select name="MARITALSTATUS" required>
+                    <option value="single">Single</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+
+                <label for="LIVINGARRANGEMENTS">Living Arrangements:</label>
+                <select name="LIVINGARRANGEMENTS" required>
+                    <option value="Alone">Alone</option>
+                    <option value="With Family">With Family</option>
+                    <option value="With Spouse">With Spouse</option>
+                </select>
+
+                <label for="PHYSICALHEALTHSTATUS">Physical Health Status:</label>
+                <select name="PHYSICALHEALTHSTATUS" required>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+
+                <label for="EXERCISEROUTINE">Exercise Routine:</label>
+                <select name="EXERCISEROUTINE" required>
+                    <option value="Regular">Regular</option>
+                    <option value="Occasional">Occasional</option>
+                </select>
+
+                <label for="DIETARYHABITS">Dietary Habits:</label>
+                <select name="DIETARYHABITS" required>
+                    <option value="Balanced Diet">Balanced Diet</option>
+                    <option value="Imbalanced Diet">Imbalanced Diet</option>
+                </select>
+
+                <label for="SOCIALINTERACTIONFREQUENCY">Social Interaction Frequency:</label>
+                <select name="SOCIALINTERACTIONFREQUENCY" required>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="occasionally">Monthly</option>
+                    <!-- <option value="rarely">Rarely</option> -->
+                </select>
+
+                <button type="submit">Generate Guidance</button>
+            </form>
+        </div>
+
+    {% if guidance %}
+
+    <!-- <br>     -->
+    <div class="info-box">
+        <h2>{{ guidance }}</h2>
+       </div> <script>
+            // Hide the form once it's filled
+            document.getElementById('form-box').style.display = 'none';
+        </script>
+    {% endif %}
+    {% if consultants %}
+        <h2>Consultants</h2>
+        <div class="consultant-cards">
+            {% for consultant in consultants %}
+                <div class="consultant-card">
+                    <h3>{{ consultant.name }}</h3>
+                    <p><strong>Specialty:</strong> {{ consultant.specialty }}</p>
+                    <p><strong>Location:</strong> {{ consultant.location }}</p>
+                    <p><strong>Price:</strong> {{ consultant.rate }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+   
+    {% if comedy_videos %}
+    <h2 style="color:white;font-size: 48px;margin-top: 25px;">Comedy Videos</h2>
+    <div class="video-buttons">
+        {% for video in comedy_videos %}
+        {% set videoFileName = video.split('/').pop().split('.mp4')[0] %}
+        <button class="video-button" onclick="playVideo('{{ video }}')">{{ videoFileName }}</button>
+        {% endfor %}
+    </div>
+    <center>
+    <div id="video-container" class="hidden">
+        <iframe id="video-frame" width="1280" height="720" frameborder="0" allowfullscreen></iframe>
+    </div></center>
+    <script>
+        function playVideo(videoUrl) {
+            var videoContainer = document.getElementById('video-container');
+            var videoFrame = document.getElementById('video-frame');
+
+            // Show the video container
+            videoContainer.style.display = 'block';
+
+            // Set the video URL
+            videoFrame.src = videoUrl;
+        }
+    </script>
+{% endif %}
+
+</body>
+</html>

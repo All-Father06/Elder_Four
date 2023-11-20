@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style>
+        *{
+            text-decoration: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: #ece4e4;
+        }
+
+        .left-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex: 0 0 50%;
+        }
+
+        .right-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            flex: 0 0 50%;
+        }
+
+        .box {
+            box-sizing: border-box;
+            border-radius: 30px;
+            border: 2px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+            text-decoration: none !important;
+            transition: box-shadow 0.3s ease; /* Add a transition effect for box-shadow */
+        }
+
+        .box1:hover {
+            box-shadow: 0px 0px 25px rgba(183, 255, 1); /* Add a box shadow on hover */
+        }
+        .box2:hover {
+            box-shadow: 0px 0px 25px rgb(0, 128, 255); /* Add a box shadow on hover */
+        }
+        .box3:hover {
+            box-shadow: 0px 0px 20px rgb(1, 255, 5); /* Add a box shadow on hover */
+        }
+        .box4:hover {
+            box-shadow: 0px 0px 20px rgb(153, 1, 255); /* Add a box shadow on hover */
+
+        }
+        .box5:hover {
+            box-shadow: 0px 0px 20px rgb(51, 43, 56); /* Add a box shadow on hover */
+
+        }
+
+
+        .box1{
+            flex: 0 0 98%;
+            height: 40vh;
+        } 
+        .box2 {
+            flex: 0 0 98%;
+            height: 55vh;
+        }
+
+        .box3, .box4 {
+            flex: 0 0 98%;
+            height: 40vh;
+        }
+        .box1{
+            background-image: linear-gradient(to bottom right,rgb(255, 0, 0),rgb(255, 204, 0));
+            filter: blur(25)
+        }
+        .box2{
+            background-image: linear-gradient(to bottom right,rgb(4, 3, 65),rgb(0, 153, 255));
+        }
+        .box3{
+            background-image: linear-gradient(to bottom right,rgb(46, 94, 11),rgb(0, 255, 55));
+            filter: blur(25)
+        }
+        .box4{
+            background-image: linear-gradient(to bottom right,rgb(94, 11, 37),rgb(208, 0, 255));
+            filter: blur(25)
+        }
+        .box5{
+            background-color: black;
+            filter: blur(25)
+        }
+        table {
+            font-size: 16px;
+            font-weight: bolder;
+            color:white; /* Adjust the font size */
+        }
+
+        th, td {
+            padding: 5px; /* Adjust the cell padding */
+        }
+
+        .table-sm th, .table-sm td {
+            padding: 2px; /* Adjust the cell padding for small tables */
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="left-container">
+        <a href ='/user' class="box box1">
+            <svg xmlns="http://www.w3.org/2000/svg" height="5.5em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"/></svg>
+            <h1 style="color:white;"> Welcome, {{ user }}</h1>
+            <h4 style="color:white;">Recent Transaction :</h4>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Transaction Id</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    {% for row in data %}
+                    <tr>    
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[3] }}</td>
+                        <td>{{ row[2] }}</td>
+                        <td>{{ row[4] }}</td>
+                        <!-- Add more columns based on your table structure -->
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+        </a>
+        <a href ="/well" class="box box2">
+            <svg xmlns="http://www.w3.org/2000/svg" height="10em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#000000}</style><path d="M256 64c53 0 96 43 96 96s-43 96-96 96s-96 43-96 96s43 96 96 96C150 448 64 362 64 256S150 64 256 64zm0 448A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm32-352a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+            <h1 style="color: white;font-size:85px;">
+                Emotional 
+                </h1>
+            <h1 style="color: white;font-size:85px;">Well Being
+            </h1>
+        </a>
+
+    </div>
+    <div class="right-container">
+        <a href="/finance" class="box box3">
+            <svg xmlns="http://www.w3.org/2000/svg" height="10em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#f5f5f5}</style><path d="M112 112c0 35.3-28.7 64-64 64V336c35.3 0 64 28.7 64 64H464c0-35.3 28.7-64 64-64V176c-35.3 0-64-28.7-64-64H112zM0 128C0 92.7 28.7 64 64 64H512c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128zM176 256a112 112 0 1 1 224 0 112 112 0 1 1 -224 0zm80-48c0 8.8 7.2 16 16 16v64h-8c-8.8 0-16 7.2-16 16s7.2 16 16 16h24 24c8.8 0 16-7.2 16-16s-7.2-16-16-16h-8V208c0-8.8-7.2-16-16-16H272c-8.8 0-16 7.2-16 16z"/></svg>
+            <h1 style="font-size: 85px;color: white;">Financial Advice</h1>
+        </a>
+        <div class="box box4">
+            <svg xmlns="http://www.w3.org/2000/svg" height="8em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M470.7 9.4c3 3.1 5.3 6.6 6.9 10.3s2.4 7.8 2.4 12.2l0 .1v0 96c0 17.7-14.3 32-32 32s-32-14.3-32-32V109.3L310.6 214.6c-11.8 11.8-30.8 12.6-43.5 1.7L176 138.1 84.8 216.3c-13.4 11.5-33.6 9.9-45.1-3.5s-9.9-33.6 3.5-45.1l112-96c12-10.3 29.7-10.3 41.7 0l89.5 76.7L370.7 64H352c-17.7 0-32-14.3-32-32s14.3-32 32-32h96 0c8.8 0 16.8 3.6 22.6 9.3l.1 .1zM0 304c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V304zM48 416v48H96c0-26.5-21.5-48-48-48zM96 304H48v48c26.5 0 48-21.5 48-48zM464 416c-26.5 0-48 21.5-48 48h48V416zM416 304c0 26.5 21.5 48 48 48V304H416zm-96 80a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+            <h1 style="color: white;font-size:85px;">
+                Financial Education
+            </h1>
+        </div>
+        <a href="/logout" class="box box5" style="width: 98%;height:10vh">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" height="4em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><style>svg{fill:#ffffff}</style><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+            <text style="font-size: 42px;padding-left: 35vh;color:white;">Log Out</text>
+            <!-- Your content for the third box goes here -->
+        </a>
+    </div>
+</body>
+</html>
