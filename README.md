@@ -30,8 +30,6 @@ Home Page The home page provides a snapshot of the user's latest transactions, o
 
 User Profile Get a detailed view of the user's profile, including age, savings, transaction history, and a personalized risk tolerance assessment. 
 
-Here is the information formatted as requested:
-
 1. Financial Insights Risk Tolerance Model 
    - **Objective**: Assess the user's risk tolerance level based on their financial profile.
      - **Model Type**: Random Forest Classifier.
