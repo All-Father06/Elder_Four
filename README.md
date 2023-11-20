@@ -82,4 +82,6 @@ These models collectively empower users to make informed decisions about their i
 ### Acknowledgments 
 Special thanks to TIAA Financial Services for inspiration and support. 
 
-### License This project is licensed under the MIT License - see the LICENSE file for details.
+### License 
+
+This project is licensed under the MIT License - see the LICENSE file for details.
